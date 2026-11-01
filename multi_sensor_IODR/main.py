@@ -16,6 +16,7 @@ import config_routine
 import wifi
 import led_ctrl          # NeoPixel / builtin LED setup 
 from influxdb_lib import InfluxDBClient
+import oled
 
 import qwiic_veml6030
 import qwiic_as726x
@@ -266,9 +267,21 @@ blank_button = machine.Pin(BLANK_BUTTON_PIN, machine.Pin.IN, machine.Pin.PULL_UP
 # Setup
 # ---------------------------------------------------------------------------
 def setup():
-    print("IODR MicroPython (MUX edition) — starting up")
+
+    # oled.init()
+    # if oled._initialized:
+    #     print("OLED initialized successfully")
+
+    print("IODR Redboard MicroPython (MUX) — starting up")
     print("Active sensor:", ACTIVE_SENSOR)
     print("Device ID:", DEVICE_ID)
+
+    # oled.write(
+    #     f"""
+    #     IODR Redboard ID: {DEVICE_ID} \n
+    #     Active sensor: {ACTIVE_SENSOR}
+    #     """
+    # )j
 
     wifi.connect()
 
