@@ -7,19 +7,20 @@ determined by the functions in led_ctrl.py. MUX channels are quickly cycled
 to read each sensor before turning the LED off again.
 """
 
+
 import machine
 import time
 import sys
 
+import oled
 import sensors as sens
-import config_routine
-import wifi
+#import config_routine
 import led_ctrl          # NeoPixel / builtin LED setup 
 from influxdb_lib import InfluxDBClient
-import oled
+import wifi
 
 import qwiic_veml6030
-import qwiic_as726x
+#import qwiic_as726x
 import qwiic_tca9548a          # SparkFun Qwiic MUX driver
 
 # ---------------------------------------------------------------------------
@@ -267,21 +268,18 @@ blank_button = machine.Pin(BLANK_BUTTON_PIN, machine.Pin.IN, machine.Pin.PULL_UP
 # Setup
 # ---------------------------------------------------------------------------
 def setup():
-
-    # oled.init()
-    # if oled._initialized:
-    #     print("OLED initialized successfully")
+    if oled.init():
+        print("OLED initialized successfully")
+    else:
+        print("Failed to initialize OLED")
 
     print("IODR Redboard MicroPython (MUX) — starting up")
     print("Active sensor:", ACTIVE_SENSOR)
     print("Device ID:", DEVICE_ID)
 
-    # oled.write(
-    #     f"""
-    #     IODR Redboard ID: {DEVICE_ID} \n
-    #     Active sensor: {ACTIVE_SENSOR}
-    #     """
-    # )j
+    oled.write(
+        f"IODR Redboard ID: {DEVICE_ID}  Sensor: {ACTIVE_SENSOR}"
+    )
 
     wifi.connect()
 
@@ -358,15 +356,28 @@ def loop():
     time.sleep_ms(50)
 
 
-# ---------------------------------------------------------------------------
-if __name__ == "__main__":
+# # ---------------------------------------------------------------------------
+# if __name__ == "__main__":
+#     setup()
+#     try:
+#         while True:
+#             loop()
+#     except (KeyboardInterrupt, SystemExit):
+#         print("\nStopping data collection.")
+#         led_ctrl.set_tube_leds(led_ctrl.LED_OFF)    
+#         led_ctrl.set_builtin_led(led_ctrl.LED_OFF)  
+#         mux.disable_all()
+#         sys.exit(0)
+def run():
+    import gc
+    gc.collect()
     setup()
     try:
         while True:
             loop()
     except (KeyboardInterrupt, SystemExit):
         print("\nStopping data collection.")
-        led_ctrl.set_tube_leds(led_ctrl.LED_OFF)    
-        led_ctrl.set_builtin_led(led_ctrl.LED_OFF)  
+        led_ctrl.set_tube_leds(led_ctrl.LED_OFF)
+        led_ctrl.set_builtin_led(led_ctrl.LED_OFF)
         mux.disable_all()
         sys.exit(0)

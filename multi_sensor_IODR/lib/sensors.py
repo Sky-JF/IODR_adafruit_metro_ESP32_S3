@@ -16,7 +16,7 @@ light only one tube LED at a time, cycling through the tubes on every read.
 """
 
 import qwiic_veml6030
-import qwiic_as726x
+#import qwiic_as726x
 import machine
 import sys
 from time import sleep

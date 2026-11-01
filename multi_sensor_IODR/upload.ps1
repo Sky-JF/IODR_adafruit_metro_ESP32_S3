@@ -1,6 +1,6 @@
 mpremote.exe fs cp ./main.py :main.py
 mpremote.exe fs cp ./lib/sensors.py :/lib/
-mpremote.exe fs cp ./lib/config_routine.py :/lib/
+#mpremote.exe fs cp ./lib/config_routine.py :/lib/
 mpremote.exe fs cp ./lib/influxdb_lib.py :/lib/
 mpremote.exe fs cp ./lib/wifi.py :/lib/
 mpremote.exe fs cp ./lib/secrets.py :/lib/
@@ -11,3 +11,7 @@ mpremote.exe fs cp ./lib/oled.py :/lib/
 #mpremote.exe mip install github:sparkfun/qwiic_veml6030_py
 #mpremote.exe mip install github:sparkfun/qwiic_tca9548a_py
 #mpremote.exe mip install github:sparkfun/qwiic_oled_base_py
+mpremote.exe fs rm ./lib/qwiic_oled/qwiic_micro_oled.py
+mpremote.exe fs rm ./lib/qwiic_oled/qwiic_oled_display.py
+#mpremote.exe fs rm ./lib/qwiic_oled/oled_logos.py
+mpremote.exe fs cp ./__init__.py :/lib/qwiic_oled/
