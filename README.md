@@ -1,6 +1,6 @@
-# IODR_sparkfun_redboard
+# IODR_adafruit_metro_ESP32_S3
 
-Second iteration of the IODR Device for the Olson Lab. The current project uses a Sparkfun IoT Redboard ESP32 Development Board and more advanced and higher accuracy sensors, such as the as726x and veml6030 produced by Sparkfun. 
+Second iteration of the IODR Device for the Olson Lab. The current project uses a Adafruit Metro ESP32-S3 Development Board and more advanced and higher accuracy sensors, such as the as726x and veml6030 produced by Sparkfun. 
 
 The IODR collects optical density/absorbance data of samples in test tubes and uploads them to a locally run database that can be accessed by the IODR frontend server. The frontend data viewing interface is hosted on Heroku and was developed by another previous undergraduate in the Olson lab, Raif Olson. Find related links in the Additional Projects section.
 
@@ -91,10 +91,6 @@ This repository features two types of powershell scripts for Windows which are u
 - SparkFun AS7343 Spectral Sensor
 - SparkFun QWIIC Directional Pad
 - SparkFun QWIIC OLED 1.3"
-
-## Resources
-- [Sparkfun IoT Redboard ESP32 Development Board main page](https://www.sparkfun.com/sparkfun-iot-redboard-esp32-development-board.html)
-- [Sparkfun ESP32 data sheet](https://cdn.sparkfun.com/datasheets/IoT/esp32_datasheet_en.pdf)
 
 ## Additional Projects
 - [Frontend data viewer](https://iodr-605db139538a.herokuapp.com)
