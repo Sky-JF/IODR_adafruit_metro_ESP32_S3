@@ -11,4 +11,4 @@ mpremote.exe fs cp ./lib/oled.py :/lib/
 #mpremote.exe mip install github:sparkfun/qwiic_as726x_py
 #mpremote.exe mip install github:sparkfun/qwiic_veml6030_py
 #mpremote.exe mip install github:sparkfun/qwiic_tca9548a_py
-mpremote.exe mip install github:sparkfun/qwiic_oled_base_py
+#mpremote.exe mip install github:sparkfun/qwiic_oled_base_py

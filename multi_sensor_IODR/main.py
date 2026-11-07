@@ -38,6 +38,8 @@ from manual_config import (
     BLANK_BUTTON_PIN,
 )
 
+DEBUG_MODE = True
+
 # ---------------------------------------------------------------------------
 # Hardware setup
 # ---------------------------------------------------------------------------
@@ -356,28 +358,39 @@ def loop():
     time.sleep_ms(50)
 
 
-# # ---------------------------------------------------------------------------
-# if __name__ == "__main__":
-#     setup()
-#     try:
-#         while True:
-#             loop()
-#     except (KeyboardInterrupt, SystemExit):
-#         print("\nStopping data collection.")
-#         led_ctrl.set_tube_leds(led_ctrl.LED_OFF)    
-#         led_ctrl.set_builtin_led(led_ctrl.LED_OFF)  
-#         mux.disable_all()
-#         sys.exit(0)
-def run():
-    import gc
-    gc.collect()
+# ---------------------------------------------------------------------------
+if __name__ == "__main__":
+    # For debugging, use this infinite loop to connect mpremote before running
+    while DEBUG_MODE:
+        try:
+            line = input()
+            if line == "START":
+                break
+        except Exception:
+            pass
+
     setup()
     try:
         while True:
             loop()
     except (KeyboardInterrupt, SystemExit):
         print("\nStopping data collection.")
-        led_ctrl.set_tube_leds(led_ctrl.LED_OFF)
-        led_ctrl.set_builtin_led(led_ctrl.LED_OFF)
+        led_ctrl.set_tube_leds(led_ctrl.LED_OFF)    
+        led_ctrl.set_builtin_led(led_ctrl.LED_OFF)  
         mux.disable_all()
         sys.exit(0)
+
+# Function for compiled code
+# def run():
+#     import gc
+#     gc.collect()
+#     setup()
+#     try:
+#         while True:
+#             loop()
+#     except (KeyboardInterrupt, SystemExit):
+#         print("\nStopping data collection.")
+#         led_ctrl.set_tube_leds(led_ctrl.LED_OFF)
+#         led_ctrl.set_builtin_led(led_ctrl.LED_OFF)
+#         mux.disable_all()
+#         sys.exit(0)

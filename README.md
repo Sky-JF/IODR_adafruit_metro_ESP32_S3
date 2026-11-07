@@ -64,25 +64,33 @@ This repository features two types of powershell scripts for Windows which are u
   ```
 3. Install dependencies
   ```
+  pip install esptool
   pip install mpremote
+  pip install mpy-cross==1.27.0.post2
   pip install sparkfun-qwiic-as726x
   pip install sparkfun-qwiic-i2c
   pip install sparkfun-qwiic-veml6030
+  pip install sparkfun-qwicc-tca9548a
+  pip install sparkfun-qwiic-oled-base
   ```
 
 ### Other useful dependencies
 - esptool 
-  Used for uploading firmware to esp32 boards. To update the firmware in a (ESP32) board, download the firmware of the board being used [here](https://micropython.org/download/SPARKFUN_IOT_REDBOARD_ESP32/) and use the following commands (in windows):
+  Used for uploading firmware to esp32 boards. To update the firmware in a (ESP32) board, download the firmware of the board being used [here](https://micropython.org/download/ESP32_GENERIC_S3/) and use the following commands (in windows):
   ```
     esptool --port <USB port address> erase-flash
-    esptool --port <USB port address> write-flash 0x1000 <path to binary file>
+    esptool --port <USB port address> write-flash 0x0 <path to binary file>
   ```
+  Windows command to find USB port address: `Get-PnpDevice -Class Ports -Status OK | Select-Object FriendlyName`
 
 ## Hardware used in this project
-- SparkFun IoT Redboard Development Board
+- [Adafruit Metro ESP32-S3 ](https://www.adafruit.com/product/5500?srsltid=AYCX9vJkIcT8WzNvKQHmqLE37ul7yZeJrD59aEqsgYIGBsPurlW5kVry)
 - SparkFun Ambient Light Sensor - VEML6030 (Qwiic)
 - SparkFun Ambient Light Sensor Breakout - TEMT6000
 - SparkFun Spectral Sensor Breakout - AS726x Visible (Qwiic)
+- SparkFun AS7343 Spectral Sensor
+- SparkFun QWIIC Directional Pad
+- SparkFun QWIIC OLED 1.3"
 
 ## Resources
 - [Sparkfun IoT Redboard ESP32 Development Board main page](https://www.sparkfun.com/sparkfun-iot-redboard-esp32-development-board.html)
