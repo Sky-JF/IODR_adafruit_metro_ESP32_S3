@@ -23,8 +23,8 @@ Usage:
 import machine
 import neopixel
 
-from manual_config import (NUM_NP_LEDS, NP_PIN_NUM, NP_IDX,
-                           BUILTIN_LED_PIN_NUM)  
+from manual_config import (NUM_NP_LEDS, NP_PIN, NP_IDX,
+                           BUILTIN_LED_PIN)  
 
 # ---------------------------------------------------------------------------
 # On / off commands
@@ -40,8 +40,8 @@ TUBE_LED_OFF_COLOR = (0, 0, 0)
 # ---------------------------------------------------------------------------
 # Hardware objects (module-level so every importer shares the same instances)
 # ---------------------------------------------------------------------------
-_np_led      = neopixel.NeoPixel(machine.Pin(NP_PIN_NUM), NUM_NP_LEDS)
-_builtin_led = machine.Pin(BUILTIN_LED_PIN_NUM, machine.Pin.OUT)   # builtin led
+_np_led      = neopixel.NeoPixel(machine.Pin(NP_PIN), NUM_NP_LEDS)
+_builtin_led = machine.Pin(BUILTIN_LED_PIN, machine.Pin.OUT)   # builtin led
 
 
 # ---------------------------------------------------------------------------

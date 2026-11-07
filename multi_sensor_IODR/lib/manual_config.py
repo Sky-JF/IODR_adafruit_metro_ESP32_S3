@@ -57,22 +57,22 @@ INFLUXDB_BUCKET = "iodr_test"
 # and use the qwiic_i2c default bus; these values apply to machine.I2C
 # objects created directly in main.py and sensors.py.
 I2C_BUS_ID  = 0
-I2C_SCL_PIN = 22
-I2C_SDA_PIN = 21
+I2C_SCL_PIN = 48
+I2C_SDA_PIN = 47
 I2C_FREQ_HZ = 400_000
 
 # ---------------------------------------------------------------------------
 # Buttons
 # ---------------------------------------------------------------------------
-BLANK_BUTTON_PIN = 33   # active-low, internal pull-up
+BLANK_BUTTON_PIN = 14   # active-low, internal pull-up
 
 # ---------------------------------------------------------------------------
 # LEDs
 # ---------------------------------------------------------------------------
 #NeoPixel LED Setup
-NUM_NP_LEDS = 8
-NP_PIN_NUM  = 4
+NUM_NP_LEDS = 8 # total number of neopixels
+NP_PIN  = 7
 # Which NeoPixel LEDs are being used [0-7] (e.g. `(4, 5, 6, 7)`)
 NP_IDX = (4, 5, 6, 7) #(1, 2) 
 
-BUILTIN_LED_PIN_NUM = 18
+BUILTIN_LED_PIN = 13
